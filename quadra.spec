@@ -1,6 +1,6 @@
 %define	name	quadra
 %define	version	1.1.8
-%define release	%mkrel 14
+%define release	%mkrel 15
 %define summary	Multiplayer puzzle game
 
 Name:		%{name}
