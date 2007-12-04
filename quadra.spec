@@ -22,7 +22,7 @@ License:	LGPL
 Group:		Games/Arcade
 Summary:	%{summary}
 BuildRequires:	libpng-devel
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:  bc
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
