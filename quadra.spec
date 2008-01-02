@@ -24,6 +24,7 @@ Summary:	%{summary}
 BuildRequires:	libpng-devel
 BuildRequires:	X11-devel
 BuildRequires:  bc
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This is the official release %{version} of Quadra, a full-featured
