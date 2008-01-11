@@ -85,7 +85,6 @@ install -d $RPM_BUILD_ROOT
 #install -m644 -D source/quadra.res $RPM_BUILD_ROOT%{_datadir}/games/quadra.res
 
 install -D -m644 mandriva-%{name}.desktop $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop
-install -D -m644 %{name}.menu $RPM_BUILD_ROOT%{_menudir}/%{name}
 install -D -m644 %SOURCE6 $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 install -D -m644 %SOURCE5 $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 install -D -m644 %SOURCE7 $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
@@ -106,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_gamesdatadir}/quadra.res
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/*
-%{_menudir}/*
 %{_iconsdir}/*.png
 %{_miconsdir}/*.png
 %{_liconsdir}/*.png
