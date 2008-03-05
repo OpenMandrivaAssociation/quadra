@@ -1,11 +1,10 @@
 %define	name	quadra
 %define	version	1.1.8
-%define release	%mkrel 15
 %define summary	Multiplayer puzzle game
 
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 16
 URL:		http://quadra.sf.net/
 Source0:	http://download.sourceforge.net/quadra/%{name}-%{version}.tar.bz2
 Source1:	%{name}-icons.tar.bz2
