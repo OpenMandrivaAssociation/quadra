@@ -1,23 +1,19 @@
 %define	name	quadra
-%define	version	1.1.8
+%define	version	1.2.0
 %define summary	Multiplayer puzzle game
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 16
-URL:		http://quadra.sf.net/
-Source0:	http://download.sourceforge.net/quadra/%{name}-%{version}.tar.bz2
+Release:	%mkrel 1
+URL:		http://code.google.com/p/quadra/
+Source0:	http://quadra.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	%{name}-icons.tar.bz2
 Source5:	%{name}-16.png
 Source6:	%{name}-32.png
 Source7:	%{name}-48.png
-Patch0:		quadra-1.1.8-includes.patch
-Patch1:		quadra-1.1.8-c++fixes.patch
-Patch2:		%{name}-1.1.8-link.patch
-Patch3:		quadra-1.1.8-gcc3.3.patch
-Patch4:		quadra-1.1.8-64bit-fixes.patch
-Patch5:		quadra-1.1.8-fix-compilation.patch
-License:	LGPL
+# fix str fmt, patch sent upstream 08 Jun 2009
+Patch0:		%{name}-1.2.0-fix-str-fmt.patch
+License:	LGPLv2+
 Group:		Games/Arcade
 Summary:	%{summary}
 BuildRequires:	libpng-devel
@@ -43,21 +39,7 @@ Features include:
 
 %prep
 %setup -q
-%patch0 -p1 -b .includes
-%patch1 -p1 -b .c++fixes
-%patch2 -p0 -b .perovyind
-%patch3 -p1 -b .gcc3.3
-%patch4 -p1 -b .64bit-fixes
-%patch5 -p1 -b .compilation
-
-cat <<EOF > %{name}.menu
-?package(%{name}):command="%{_gamesbindir}/%{name}" \
-		  icon=%{name}.png \
-		  needs="x11" \
-		  section="More Applications/Games/Arcade" \
-		  title="Quadra"\
-		  longtitle="%{summary}" xdg="true"
-EOF
+%patch0 -p1 -b .strfmt
 
 cat << EOF > mandriva-%{name}.desktop
 [Desktop Entry]
@@ -77,16 +59,16 @@ X_EXTRA_LIBS="-lz" \
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
-%makeinstall bindir=$RPM_BUILD_ROOT%{_gamesbindir}
+rm -rf %{buildroot}
+install -d %{buildroot}
+%makeinstall bindir=%{buildroot}%{_gamesbindir}
 #install -s -D source/quadra $RPM_BUILD_ROOT%{_bindir}/quadra
 #install -m644 -D source/quadra.res $RPM_BUILD_ROOT%{_datadir}/games/quadra.res
 
-install -D -m644 mandriva-%{name}.desktop $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop
-install -D -m644 %SOURCE6 $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-install -D -m644 %SOURCE5 $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-install -D -m644 %SOURCE7 $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install -D -m644 mandriva-%{name}.desktop %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
+install -D -m644 %SOURCE6 %{buildroot}%{_iconsdir}/%{name}.png
+install -D -m644 %SOURCE5 %{buildroot}%{_miconsdir}/%{name}.png
+install -D -m644 %SOURCE7 %{buildroot}%{_liconsdir}/%{name}.png
 
 %if %mdkversion < 200900
 %post
@@ -99,7 +81,7 @@ install -D -m644 %SOURCE7 $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
