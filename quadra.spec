@@ -4,7 +4,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 4
+Release:	%mkrel 5
 URL:		http://code.google.com/p/quadra/
 Source0:	http://quadra.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	%{name}-icons.tar.bz2
@@ -16,8 +16,11 @@ Patch0:		%{name}-1.2.0-fix-str-fmt.patch
 License:	LGPLv2+
 Group:		Games/Arcade
 Summary:	%{summary}
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxpm-devel
+BuildRequires:	libxxf86vm-devel
 BuildRequires:	libpng-devel
-BuildRequires:	X11-devel
 BuildRequires:  bc
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
@@ -50,18 +53,16 @@ Exec=%_gamesbindir/%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
+Categories=Game;ArcadeGame;
 EOF
 
 %build
-X_EXTRA_LIBS="-lz" \
-%configure --without-svgalib
+%configure2_5x --bindir=%{_gamesbindir}
 %make
 
 %install
 rm -rf %{buildroot}
-install -d %{buildroot}
-%makeinstall bindir=%{buildroot}%{_gamesbindir}
+%makeinstall_std
 #install -s -D source/quadra $RPM_BUILD_ROOT%{_bindir}/quadra
 #install -m644 -D source/quadra.res $RPM_BUILD_ROOT%{_datadir}/games/quadra.res
 
