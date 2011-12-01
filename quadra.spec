@@ -63,8 +63,8 @@ EOF
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-#install -s -D source/quadra $RPM_BUILD_ROOT%{_bindir}/quadra
-#install -m644 -D source/quadra.res $RPM_BUILD_ROOT%{_datadir}/games/quadra.res
+#install -s -D source/quadra %{buildroot}%{_bindir}/quadra
+#install -m644 -D source/quadra.res %{buildroot}%{_datadir}/games/quadra.res
 
 install -D -m644 mandriva-%{name}.desktop %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 install -D -m644 %SOURCE6 %{buildroot}%{_iconsdir}/%{name}.png
