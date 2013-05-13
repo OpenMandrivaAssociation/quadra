@@ -4,7 +4,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 6
+Release:	7
 URL:		http://code.google.com/p/quadra/
 Source0:	http://quadra.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	%{name}-icons.tar.bz2
@@ -22,7 +22,6 @@ BuildRequires:	pkgconfig(xpm)
 BuildRequires:	pkgconfig(xxf86vm)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  bc
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This is the official release %{version} of Quadra, a full-featured
