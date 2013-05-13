@@ -16,11 +16,11 @@ Patch0:		%{name}-1.2.0-fix-str-fmt.patch
 License:	LGPLv2+
 Group:		Games/Arcade
 Summary:	%{summary}
-BuildRequires:	libx11-devel
-BuildRequires:	libxext-devel
-BuildRequires:	libxpm-devel
-BuildRequires:	libxxf86vm-devel
-BuildRequires:	libpng-devel
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xpm)
+BuildRequires:	pkgconfig(xxf86vm)
+BuildRequires:	pkgconfig(libpng)
 BuildRequires:  bc
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
