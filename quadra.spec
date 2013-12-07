@@ -4,7 +4,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	8
+Release:	9
 URL:		http://code.google.com/p/quadra/
 Source0:	http://quadra.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	%{name}-icons.tar.bz2
