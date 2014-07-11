@@ -1,7 +1,7 @@
 Summary:	Multiplayer puzzle game
 Name:		quadra
 Version:	1.2.0
-Release:	12
+Release:	13
 License:	LGPLv2+
 Group:		Games/Arcade
 Url:		http://code.google.com/p/quadra/
