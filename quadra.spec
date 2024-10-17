@@ -4,7 +4,7 @@ Version:	1.2.0
 Release:	17
 License:	LGPLv2+
 Group:		Games/Arcade
-Url:		http://code.google.com/p/quadra/
+Url:		https://code.google.com/p/quadra/
 Source0:	http://quadra.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	%{name}-icons.tar.bz2
 Source5:	%{name}-16.png
